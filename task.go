@@ -7,14 +7,19 @@ import (
 )
 
 func main() {
-	// printSegitiga(4)
+	printSegitiga(4)
+	printSegitiga(5)
 
-	// printSegitiga(5)
+	fmt.Println(genPass("abcd", "low"))
+	fmt.Println(genPass("abcd", "med"))
+	fmt.Println(genPass("abcd", "strong"))
 
+	fmt.Println("Movie Number (duration 17) : ")
 	fmt.Print(chooseFilmByDuration(17))
-	// fmt.Print(chooseFilmByDuration(1))
-
-	fmt.Println(genPass("t", "low"))
+	fmt.Println("Movie Number  (duration 10) : ")
+	fmt.Print(chooseFilmByDuration(10))
+	fmt.Println("Movie Number  (duration 1) : ")
+	fmt.Println(chooseFilmByDuration(1))
 
 }
 
@@ -36,16 +41,11 @@ func genPass(pass string, level string) string {
 
 	charspecial := "!@#$%^&*?"
 	passRune := []rune(pass)
-	var passLength int = len(pass)
 	var passNumber string
 	var passSpecial string
 
-	if passLength < 3 {
-		passLength += 4
-	}
-
 	if level == "low" || level == "med" || level == "strong" {
-		for i := 0; i < passLength; i++ {
+		for i := 0; i < 6; i++ {
 			passNumber += fmt.Sprint(rand.Intn(9))
 		}
 	}
