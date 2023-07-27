@@ -14,12 +14,13 @@ func main() {
 	fmt.Println(genPass("abcd", "med"))
 	fmt.Println(genPass("abcd", "strong"))
 
+	var listMovieDuration = []int{1, 7, 3, 4, 8, 9}
 	fmt.Println("Movie Number (duration 17) : ")
-	fmt.Print(chooseFilmByDuration(17))
+	fmt.Print(chooseFilmByDuration(listMovieDuration, 17))
 	fmt.Println("Movie Number  (duration 10) : ")
-	fmt.Print(chooseFilmByDuration(10))
+	fmt.Print(chooseFilmByDuration(listMovieDuration, 10))
 	fmt.Println("Movie Number  (duration 1) : ")
-	fmt.Println(chooseFilmByDuration(1))
+	fmt.Println(chooseFilmByDuration(listMovieDuration, 1))
 
 }
 
@@ -67,8 +68,8 @@ func genPass(pass string, level string) string {
 
 }
 
-func chooseFilmByDuration(hour int) string {
-	var listMovieDuration = []int{1, 7, 3, 4, 8, 9}
+func chooseFilmByDuration(listMovieDuration []int, hour int) string {
+	// var listMovieDuration = []int{1, 7, 3, 4, 8, 9}
 	var result string = ""
 	for index, value := range listMovieDuration {
 		for i := index + 1; i < len(listMovieDuration); i++ {
